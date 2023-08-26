@@ -68,3 +68,6 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+if __name__ == "__main__":
+    app.run(debug=True)
