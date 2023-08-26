@@ -33,9 +33,9 @@ class TestTimelinePost(unittest.TestCase):
         second_post = TimelinePost.create(name='Jane Doe', email='jame@example.com', content='Hello world, I\'m Jane!')
         assert second_post.id == 2
         # Get timeline posts and assert that they are correct
-        timeline_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        timeline_posts = TimelinePost.select()
         assert timeline_posts.count() == 2
-        # assert timeline_posts[0].id == 1
+        assert timeline_posts[0].id == 1
         assert timeline_posts[0].name == 'John Doe'
         assert timeline_posts[1].id == 2
         assert timeline_posts[1].email == 'jame@example.com'
