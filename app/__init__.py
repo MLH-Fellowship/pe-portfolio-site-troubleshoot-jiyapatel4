@@ -35,11 +35,11 @@ mydb.create_tables([TimelinePost])
 
 @app.route('/')
 def index():
-return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
 
 @app.route('/timeline')
 def timeline():
-    return rendertemplate('timeline.html', title="Timeline", url=os.getenv("URL"))
+    return render_template('timeline.html', title="Timeline", url=os.getenv("URL"))
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
@@ -68,3 +68,6 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
